@@ -1,251 +1,203 @@
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body styles */
 body {
     font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(120deg, #1e1f29, #2a3442);
+    color: white;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #2b2b31; /* Dark warm background */
-    color: #d5bfb2; /* Warm beige text */
     overflow: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+/* Content Container */
+.content {
+    text-align: center;
+    z-index: 10;
     position: relative;
 }
 
-/* Dynamic Background with moving circles */
-.background {
+/* Heading Styling */
+.heading {
+    font-size: 5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Subtitle */
+.subtext {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+/* Countdown Box */
+.countdown-box {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+#countdown {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+/* Additional text effects */
+.effects-text {
+    font-size: 1.2rem;
+    margin-top: 40px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Bubbles Container */
+.bubble-container {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: 0;
+    z-index: 1;
 }
 
-.circle {
+/* Bubbles */
+.bubble {
     position: absolute;
-    background: rgba(255, 192, 203, 0.07); /* Subtle pink glow */
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    animation: move 20s infinite ease-in-out;
+    animation: rise 15s infinite;
+    opacity: 0.7;
 }
 
-    .circle:nth-child(1) {
-        width: 250px;
-        height: 250px;
-        top: -50px;
-        left: -50px;
-        animation-duration: 24s;
-    }
-
-    .circle:nth-child(2) {
-        width: 400px;
-        height: 400px;
-        bottom: -100px;
-        right: -100px;
-        animation-duration: 20s;
-    }
-
-    .circle:nth-child(3) {
-        width: 350px;
-        height: 350px;
-        top: 150px;
-        right: -150px;
-        animation-duration: 18s;
-    }
-
-@keyframes move {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    50% {
-        transform: translate(50px, 50px);
-    }
-
-    100% {
-        transform: translate(0, 0);
+@keyframes rise {
+    to {
+        transform: translateY(-120vh);
+        opacity: 0;
     }
 }
 
-/* Logo Text Styling */
-.logo-text {
+/* Shape Container for decorative rotating shapes */
+.shape-container {
     position: absolute;
-    top: 30px;
+    top: 0;
+    left: 0;
     width: 100%;
-    text-align: center;
+    height: 100%;
+    pointer-events: none;
     z-index: 2;
 }
 
-    .logo-text h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: 2rem; /* Adjusted for smaller size */
-        background: linear-gradient(90deg, #ff6347 0%, #ff4500 100%); /* Warm gradient: tomato to orange */
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        letter-spacing: 2px;
-        animation: fadeIn 2s ease forwards;
+.shape {
+    position: absolute;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: rotateShape 12s linear infinite;
+    opacity: 0.7;
+}
+
+    .shape.large {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
     }
 
-/* Main Content Styling */
-.main-content {
-    z-index: 1;
-    text-align: center;
-    position: relative;
-    padding: 20px;
-    width: 100%;
-    max-width: 600px;
-    margin-top: 100px; /* Adjusted for logo */
-}
-
-/* Animated Title */
-.title {
-    font-size: 2.8rem; /* Slightly smaller */
-    font-weight: 300;
-    color: #f4cbb2; /* Warm peach text */
-    margin-bottom: 25px;
-    letter-spacing: 2px;
-    animation: text-appear 2s ease-in-out forwards;
-}
-
-@keyframes text-appear {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
+    .shape.medium {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .shape.small {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
     }
-}
 
-p {
-    font-size: 1.4rem; /* Slightly smaller for cohesion */
-    margin-bottom: 25px;
-}
-
-.countdown p {
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-}
-
-.fade-in {
-    opacity: 0;
-    animation: fadeIn ease 2s;
-    animation-fill-mode: forwards;
-    animation-delay: 1s;
-}
-
-@keyframes fadeIn {
+/* Keyframes for shape rotation */
+@keyframes rotateShape {
     0% {
-        opacity: 0;
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.05);
     }
 
     100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+/* Position of the shapes */
+.shape.topleft {
+    top: 5%;
+    left: 10%;
+}
+
+.shape.bottomright {
+    bottom: 10%;
+    right: 10%;
+}
+
+.shape.bottomleft {
+    bottom: 15%;
+    left: 15%;
+}
+
+/* Glowing Border Lines for polish */
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: glowLine 5s infinite;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+body::after {
+    top: auto;
+    bottom: 0;
+    animation-direction: reverse;
+}
+
+body:before::before,
+body:before::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(to top, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: glowLine 5s infinite;
+    left: 0;
+    z-index: 5;
+}
+
+@keyframes glowLine {
+    0%, 100% {
+        opacity: 0.6;
+    }
+
+    50% {
         opacity: 1;
-    }
-}
-
-/* Social Media Links */
-.social-links {
-    margin-top: 20px;
-}
-
-    .social-links p {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-        letter-spacing: 1px;
-    }
-
-    .social-links ul {
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .social-links a {
-        color: #e3b897; /* Warm orange-ish */
-        font-size: 1.2rem;
-        text-decoration: none;
-        position: relative;
-        padding-bottom: 5px;
-        transition: color 0.3s ease;
-    }
-
-        .social-links a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 2px;
-            width: 100%;
-            background-color: #e3b897;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #ff6a4d; /* Warm salmon for hover */
-        }
-
-            .social-links a:hover::after {
-                transform: scaleX(1);
-                transform-origin: left;
-            }
-
-/* Responsive for smaller screens */
-@media (max-width: 768px) {
-    body {
-        justify-content: flex-start;
-        padding-top: 15%;
-    }
-
-    .main-content {
-        text-align: center;
-    }
-
-    .title {
-        font-size: 2.2rem;
-    }
-
-    p {
-        font-size: 1.2rem;
-    }
-
-    .countdown p {
-        font-size: 1.5rem;
-    }
-
-    .logo-text h1 {
-        font-family: 'Lora', serif; /* Elegant serif font */
-        font-size: 2.5rem;
-        color: #b0b8c1; /* Cool, soft silver-blue color */
-        letter-spacing: 2px;
-        text-transform: none; /* No uppercase for a softer feel */
-        animation: fadeIn 2s ease forwards;
-    }
-}
-
-@media (min-width: 769px) {
-    .main-content {
-        padding-left: 0%;
-        text-align: center;
-    }
-
-    .title {
-        font-size: 3.2rem;
-    }
-
-    p {
-        font-size: 1.5rem;
-    }
-
-    .countdown p {
-        font-size: 2.2rem;
     }
 }
