@@ -1,0 +1,373 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; /* Updated font */
+    background-color: #f4f4f4; /* Soft background */
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: #2C3E50; /* Dark blue header */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+    header .logo img {
+        max-height: 100%; /* Ensure the image fills the height of the header */
+        width: auto; /* Maintain the aspect ratio of the logo */
+        display: block; /* Remove any extra space around the image */
+    }
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+
+    nav a:hover {
+        color: #cbfdff; /* Light grey on hover */
+    }
+
+    nav a.active {
+        border-bottom: 2px solid #ECF0F1; /* Add an underline */
+        color: #ECF0F1; /* Change the color */
+        font-weight: bold; /* Make it bold */
+    }
+
+.hero {
+    background: rgba(44, 62, 80, 0.8); /* Darker background */
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+.recipe-filters {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.filter-btn {
+    background-color: #34495E; /* Darker grey-blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    .filter-btn:hover {
+        background-color: #ECF0F1; /* Light grey on hover */
+        color: #2C3E50; /* Dark text on hover */
+    }
+
+.recipes {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+    .recipes h2 {
+        font-size: 2.5rem;
+        margin-bottom: 12.5px;
+        color: #2C3E50; /* Dark blue */
+    }
+
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.recipe-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left; /* Align text to the left */
+}
+
+    .recipe-card img {
+        width: 100%;
+        height: 200px; /* Fixed height for uniformity */
+        object-fit: cover; /* Maintain aspect ratio */
+        border-radius: 10px 10px 0 0;
+    }
+
+    .recipe-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+.difficulty {
+    display: flex;
+    gap: 5px;
+}
+
+    .difficulty .dot {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: grey; /* Default color for not selected */
+    }
+
+        .difficulty .dot.active {
+            background-color: #622d2d; /* Highlighted for selected */
+        }
+
+.recipe-info {
+    margin-top: 15px;
+}
+
+.food-type {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#show-more {
+    background-color: #2C3E50; /* Dark blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+    #show-more:hover {
+        background-color: #ECF0F1; /* Light grey on hover */
+        color: #2C3E50;
+    }
+
+.image-gallery {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+    .image-gallery h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #2C3E50; /* Dark blue */
+    }
+
+.gallery {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Space between images */
+}
+
+    .gallery img {
+        width: 100%;
+        border-radius: 10px;
+        transition: transform 0.3s ease; /* Smooth transition for scaling */
+    }
+
+        .gallery img:hover {
+            transform: scale(0.75); /* Enlarge the image slightly on hover */
+            cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+        }
+
+
+/* Privacy Policy */
+
+.priv-policy {
+    padding: 50px 75px;
+    text-align: center;
+}
+
+    .priv-policy h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #2C3E50; /* Dark blue */
+    }
+
+    .priv-policy h4 {
+        font-size: 1rem;
+        margin-bottom: 5px;
+        color: #45595a;
+    }
+    .priv-policy h3 {
+        font-size: 1rem;
+        margin-bottom: 7px;
+        color: #700000;
+    }
+
+.boxed {
+    background-color: #b7c7c6; /* Box background color */
+    padding: 5px 10px; /* Padding inside the box */
+    border-radius: 4px; /* Rounded edges */
+    border: 2px solid #2C3E50; /* Border around the box */
+    display: inline-block; /* Keep the box inline with the text */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+ul {
+    list-style-type: none; /* Remove bullet points */
+}
+
+
+/* Lucas Mills */
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.video-tile {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .video-tile iframe {
+        width: 100%;
+        height: 200px; /* Adjust height as needed */
+        border: none;
+    }
+
+
+.lucas-mills-text h2 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.lucas-mills-text h3 {
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.lucas-mills-text p {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+
+/* Footer */
+footer {
+    background-color: #333333;
+    color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+}
+
+.contactus-link {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+    .contactus-link a {
+        color: #f9f9f9;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .contactus-link a:hover {
+        color: #4dd479;
+    }
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+    .footer-links a {
+        color: #f9f9f9;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        .footer-links a:hover {
+            color: #b6869f;
+        }
+
+.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+    .social-links a {
+        color: #f9f9f9;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        .social-links a:hover {
+            color: #683c53;
+        }
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}

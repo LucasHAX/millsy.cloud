@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>FTCS:GlobalTastes | Home</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+
+    <meta name="description" content="Join Lucas Mills in exploring culinary delights from around the world. Discover recipes and cooking videos that inspire your inner chef!">
+    <meta name="keywords" content="cooking, recipes, culinary, global tastes, food, videos, Lucas Mills, Flavour Tour">
+    <meta name="author" content="Lucas Mills">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <img src="images/ftcs logo.png" alt="FTCS Logo">
+        </a>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="lucas-mills.html">Lucas Mills</a>
+            <a href="millsy.cloud.html">millsy.CLOUD</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Flavour Tour Cooking Show:</h1>
+        <h2>Global Tastes</h2>
+    </section>
+
+    <section class="recipe-filters">
+        <button class="filter-btn" onclick="filterRecipes('all')">All</button>
+        <button class="filter-btn" onclick="filterRecipes('beef')">Beef</button>
+        <button class="filter-btn" onclick="filterRecipes('chicken')">Chicken</button>
+        <button class="filter-btn" onclick="filterRecipes('vegetarian')">Vegetarian</button>
+        <button class="filter-btn" onclick="filterRecipes('vegan')">Vegan</button>
+        <button class="filter-btn" onclick="filterRecipes('sweet-treats')">Sweet Treats</button>
+        <button class="filter-btn" onclick="filterRecipes('sides')">Sides</button>
+    </section>
+
+    <section class="recipes">
+        <h2>Featured Recipes</h2>
+        <div id="recipe-grid" class="recipe-grid"></div>
+        <button id="show-more" onclick="showMoreRecipes()">Show More</button>
+    </section>
+
+    <section class="image-gallery">
+        <h2>Our Culinary Accomplishments</h2>
+        <div class="gallery">
+            <img src="images/gallery/image1.jpg" alt="Dish 1" onclick="enlargeImage(this)">
+            <img src="images/gallery/image2.jpg" alt="Dish 2" onclick="enlargeImage(this)">
+            <img src="images/gallery/image3.jpg" alt="Dish 3" onclick="enlargeImage(this)">
+            <img src="image4.jpg" alt="Dish 4" onclick="enlargeImage(this)">
+            <img src="image5.jpg" alt="Dish 5" onclick="enlargeImage(this)">
+            <img src="image6.jpg" alt="Dish 6" onclick="enlargeImage(this)">
+            <!-- Add more images as needed -->
+        </div>
+    </section>
+
+    <img src="images/ftcs info.png" alt="#" width="908" height="128" style="display: block; margin: 0 auto;">
+    <br>
+    <br>
+
+    <footer>
+        <div class="footer-container">
+            <ul class="contactus-link">
+                <li><a href="enquiries.html">Contact Us</a></li>
+            </ul>
+            <p>2024 &copy; Flavour Tour Cooking Show</p>
+            <ul class="footer-links">
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms & Conditions</a></li>
+            </ul>
+            <ul class="social-links">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">YouTube</a></li>
+                <li><a href="#">Twitch</a></li>
+                <li><a href="#">Twitter</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Modal for Enlarged Images -->
+    <div id="image-modal" class="modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-image">
+        <div id="caption"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
